@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="resources/css/registro.css">
+</head>
+<body background="https://images.ecestaticos.com/w7UczdthqaS2zwyecoN83cKZhu8=/19x5:1681x1252/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2Fa28%2Fefe%2F037%2Fa28efe037a84c44c804aaf093d2f6a85.jpg">
+
+    <form action="/registro" method="post" class="form">
+        <h1 class="titulo">Registro</h1>
+        <label for="email"></label>
+        <input class="cajas" id="email" name="email" type="email" placeholder="Email">
+
+        <label for="nombre"></label>
+        <input class="cajas" id="nombre" name="nombre" type="text" placeholder="nombre">
+
+        <label for="rol"></label>
+        <select name="rol" id="rol" class="cajas" placeholder="Rol">
+            <option value="admin" selected>Admin</option>
+            <option value="data entry">Data Entry</option>
+        </select>
+
+        <label for="password"></label>
+        <input class="cajas" id="password" name="password" type="password" placeholder="Contraseña" required>
+
+
+        <input type="submit" class="btn" value="Registrarse"></input>
+    </form>
+    <!-- SweetAlert2 para manejar las alertas -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <% if (typeof alert != "undefined") { %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirButton: <%= showConfirmButton %>,
+                timer: <%= timer %>
+            }).then(() => {
+                window.location='/<%=  ruta %>'
+            });
+        </script>
+    <% } %>
+</body>
+</html>
